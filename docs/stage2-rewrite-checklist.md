@@ -12,9 +12,9 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [ ] **R-006** — Privileged session logging gaps — `treatment_rationale`
 - [ ] **R-007** — MFA coverage gap on legacy applications — `treatment_rationale`
 - [ ] **R-008** — Role and privilege sprawl — `treatment_rationale`
-- [ ] **R-009** — Orphaned accounts with no mapped active employee — `treatment_rationale`
-- [ ] **R-010** — Mover events do not trigger access revocation — `treatment_rationale`
-- [ ] **R-011** — Admin console over-privilege on critical SaaS/cloud platforms — `treatment_rationale`
+- [x] **R-009** — Orphaned accounts with no mapped active employee — `treatment_rationale`
+- [x] **R-010** — Mover events do not trigger access revocation — `treatment_rationale`
+- [x] **R-011** — Admin console over-privilege on critical SaaS/cloud platforms — `treatment_rationale`
 - [ ] **R-012** — Contractor access lifecycle not tied to engagement end date — `treatment_rationale`
 - [ ] **R-013** — SSO coverage gap on the legacy e-discovery application — `treatment_rationale`, `compensating_control`, `escalation_path`
 - [ ] **R-014** — Break-glass emergency access lacks logging and review — `treatment_rationale`
