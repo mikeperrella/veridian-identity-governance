@@ -148,6 +148,18 @@ Created 7 User accounts in CISO Assistant, one per distinct `owner` value alread
 
 They exist solely so that CISO Assistant's real ownership/assignment relational fields (starting with `Finding.owner`, and any other `owner` M2M field populated going forward — `AppliedControl.owner`, `RiskScenario.owner`, `Asset.owner`) can be set to an actual linked User record instead of either being left unset or having the role name duplicated as free text somewhere. This keeps role attribution as structured, queryable data rather than a string that could drift from the CSVs' `owner` column over time.
 
+## Data Integrity Finding (Discovered During Stage 4 Evidence Verification)
+
+While verifying evidence for a Stage 4 Finding against `data/identity_inventory.csv`, a bug was found in `data/generate_inventory.py`: one employee, **EMP-0190 (Jessica Gross)**, has a `term_date` (2026-09-06) that falls *after* `AS_OF` (2026-08-26, the script's fixed "today"). She matched the filter `status == 'Terminated' AND okta_status == 'Active'` but isn't actually a valid example of a currently-terminated employee, since her termination date hasn't occurred yet as of the reference date.
+
+**Root cause:** for employees hired within 30 days of `AS_OF`, the generator's 30-day minimum-tenure floor (`hire_date + timedelta(days=30)`) lands after `AS_OF`, inverting the valid date range. The `random_date()` helper's fallback silently returned the unclamped (future) start of that inverted range instead of failing or clamping.
+
+**Consequence for Stage 4:** EMP-0190 was excluded from the C-03 Finding's cited evidence — **3 valid accounts** (EMP-0007, EMP-0023, EMP-0029) were cited instead of the original 4 matched by the raw filter.
+
+**Fix applied:** `random_date()` now raises `ValueError` on an inverted range instead of silently clamping to zero days, and the `term_date` call site clamps its lower bound to `AS_OF` so an early-hire termination is dated on `AS_OF` itself rather than in the future. This fix is in the generator script only.
+
+**`data/identity_inventory.csv` was deliberately not regenerated.** Doing so now would risk shifting other counts and specific rows already verified and cited across Stages 1-3 (the offboarding-gap count, stale-review-date counts, specific employee IDs referenced in this document and in CISO Assistant Findings) for the sake of fixing one row. The currently-committed CSV retains this one known-bad row (EMP-0190); regeneration and a full re-verification pass are tracked as a separate follow-up task, not bundled into Stage 4.
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.

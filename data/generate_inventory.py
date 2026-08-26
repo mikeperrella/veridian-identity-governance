@@ -61,7 +61,9 @@ COMPANY_START = WINDOW_START - timedelta(days=5 * 365)  # a handful of long-tenu
 
 def random_date(start, end):
     delta_days = (end - start).days
-    return start + timedelta(days=random.randint(0, max(delta_days, 0)))
+    if delta_days < 0:
+        raise ValueError(f"random_date: start ({start}) is after end ({end})")
+    return start + timedelta(days=random.randint(0, delta_days))
 
 
 def gen_hire_date(index, total):
@@ -92,7 +94,12 @@ def gen_identity_inventory():
 
         is_terminated = i in terminated_indices
         if is_terminated:
-            term_date = random_date(hire_date + timedelta(days=30), AS_OF)
+            # For employees hired within 30 days of AS_OF, the usual 30-day
+            # minimum tenure floor would exceed AS_OF and produce a future
+            # date. Clamp the floor to AS_OF so termination is never dated
+            # after "today" — this employee was simply terminated almost
+            # immediately.
+            term_date = random_date(min(hire_date + timedelta(days=30), AS_OF), AS_OF)
             status = "Terminated"
             okta_status = "Active" if i in offboarding_gap_indices else "Deprovisioned"
         else:
