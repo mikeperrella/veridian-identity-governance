@@ -103,6 +103,43 @@ Imported all 10 rows from `controls/control-catalog.csv` as AppliedControl objec
 
 **R-013, R-015, and R-016 correctly remain unlinked** (`applied_controls: []`) — `control-catalog.csv` never assigns any of the 10 controls to these three risks, so no PATCH was sent for them. This was confirmed directly: a fresh `GET` on R-013 after the linking pass returned an empty `applied_controls` array, not an accidental population.
 
+## SOC 2 Framework Import & Requirement-to-Control Linkage
+
+Imported **SOC2-2017 Trust Services Criteria (revision 2022)** via `POST /api/stored-libraries/{id}/import/` (confirmed available and `is_loaded: false` beforehand, same pattern as the risk matrices). Verified via `GET /api/frameworks/`: a real `Framework` object now exists (`id: 5ce9b67b-edf1-4e75-bafa-b45d7aadf639`).
+
+Created one **ComplianceAssessment**, `name: "Veridian SOC 2 Type II Readiness Assessment 2026"`, `framework` set to that UUID.
+
+**Auto-generation finding:** creating the ComplianceAssessment automatically generated **375 RequirementAssessment rows — one for every requirement node in the framework**, not just the ones relevant to our 10 controls. This meant the correct approach for linking controls was to `PATCH` the 12 already-existing auto-created rows we cared about (matched by their `requirement.id` field), not `POST` new RequirementAssessment records — POSTing would have either duplicated rows or failed outright. This was discovered by checking `GET /api/requirement-assessments/?compliance_assessment={id}` immediately after creation, before attempting either approach blind.
+
+### Control-to-Points-of-Focus Mapping (10 controls → 12 points of focus, 16 links)
+
+CC6.1, CC6.2, and CC6.3 (the three sub-criteria our own `docs/soc2-cc6-nist-csf-mapping.md` cites) are each non-assessable category headers in this framework — the real assessable units are their child "points of focus" nodes (e.g., CC6.1.1–CC6.1.13). Each control below was matched to a specific point of focus by reading its actual description text, not by picking the first child under the right parent:
+
+| Control | Point(s) of focus | Why |
+|---|---|---|
+| C-01 MFA Enforcement | CC6.1.4 | Point of focus text explicitly names multi-factor authentication. |
+| C-02 JML Provisioning | CC6.2.1, CC6.2.3 | Spans the full joiner→leaver lifecycle; CC6.2.1 (credential creation on authorization) covers the joiner half, CC6.2.3 (preventing use of no-longer-valid credentials) covers the leaver half. Neither cited CC6.1 point of focus was a genuine content match, so only CC6.2 points were used despite the dual citation. |
+| C-03 Termination Deprovisioning | CC6.2.3, CC6.3.2 | Both describe offboarding access removal, from the credential-invalidation angle and the access-removal-process angle respectively. |
+| C-04 Quarterly UAR | CC6.3.4 | Direct match — periodic review of access roles/rules for inappropriate individuals or accounts. No CC6.1 point of focus concerns periodic review despite the dual citation. |
+| C-05 Service Account Ownership | CC6.1.9 | The one CC6.1 point of focus specifically about infrastructure/software (not human-user) credentials being documented and removed when no longer in use — matches service accounts specifically. |
+| C-06 Privileged Session Logging & Break-Glass | CC7.2.1, CC7.2.3 | **No CC6.3 point of focus fit this control's actual content** (logging/reviewing privileged sessions), even though CC6.3 was cited. The genuine match required going to **CC7.2** (system monitoring for anomalies) — our own framework doc already cites CC7.2 for this control alongside CC6.3, so this wasn't a new criterion, just the one CC6.3 alone couldn't satisfy. CC7.2.1 explicitly names "logging of unusual system activities"; CC7.2.3 covers analyzing/reviewing those anomalies. |
+| C-07 Vendor / Third-Party Access Review | CC9.2.2, CC9.2.3 | C-07 was never cited under CC6.x at all — its actual citation is **CC9.2** (vendor risk management), which our framework doc already uses for this control. CC9.2.2 explicitly names "third-party access to the entity's IT systems"; CC9.2.3 covers the periodic-assessment cadence. |
+| C-08 Least-Privilege Role Design & Entitlement Review | CC6.3.3, CC6.3.4 | Two genuinely separate halves of one control — CC6.3.3 (RBAC/least-privilege structures) for the design half, CC6.3.4 (periodic role review) for the review half. |
+| C-09 Contractor Access Lifecycle | CC6.2.1, CC6.2.3 | Same start/end split as C-02 — engagement-start provisioning and engagement-end expiry are the two literal halves of this control's stated objective. |
+| C-10 Orphaned Account Reconciliation | CC6.2.2 | "Reviews Validity of Access Credentials... and inappropriate system or service accounts" is close to a direct description of an orphaned account. |
+
+Some points of focus are shared by more than one control (CC6.2.1 and CC6.3.4 each by 2 controls, CC6.2.3 by 3 — C-02, C-03, and C-09 all touch "credentials no longer valid" from their own angle), which is why 16 total links resolve to only 12 distinct RequirementAssessment rows.
+
+### Verification
+
+All 12 `PATCH` requests to the relevant RequirementAssessment rows returned HTTP 200 with the expected `applied_controls` length. Spot-checked 3 via independent fresh `GET` requests after submission:
+
+| Point of focus | Expected controls | Actual | Match |
+|---|---|---|---|
+| CC6.2.3 | C-02, C-03, C-09 | C-02, C-03, C-09 | Yes |
+| CC7.2.1 | C-06 | C-06 | Yes |
+| CC9.2.2 | C-07 | C-07 | Yes |
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.
