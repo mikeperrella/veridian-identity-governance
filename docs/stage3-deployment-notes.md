@@ -85,6 +85,12 @@ All three matched exactly. The API response for each scenario also echoed back t
 
 `residual_proba`, `residual_impact`, and `residual_level` correctly show as unrated (`value: -1`, `name: "--"`) on every scenario, consistent with the current/residual limitation documented above — those fields were never set for any of the 16 imports.
 
+## Applied Control Import
+
+Imported all 10 rows from `controls/control-catalog.csv` as AppliedControl objects via `POST /api/applied-controls/`. Verified via `GET /api/applied-controls/`: **count = 10**. `category` was inferred per control from its `frequency` column value (continuous/system-enforced → `technical`; per-event-triggered → `procedure`; calendar-cadence recurring review → `process`); `csf_function` was sourced directly from each control's existing NIST CSF citation in `framework_mapping` (all 10 sourced, none inferred); `status` was mapped from `implementation_status` (`Partially Implemented` → `in_progress`, `Designed (not yet implemented)` → `to_do`). `reference_control` was deliberately left unset, pending the SOC 2 framework library import.
+
+`effort` and `priority` were **intentionally left unpopulated** on all 10 controls. Neither field has a corresponding source column in `control-catalog.csv`, and assigning a T-shirt size or a 1-4 priority number now would be inventing a judgment call rather than translating existing data. Both are deferred to Stage 4 ("Control Testing & Findings"), where actual test results and deficiency severity will give a real, evidence-based basis for prioritization — rather than a speculative one assigned before any testing has occurred.
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.
