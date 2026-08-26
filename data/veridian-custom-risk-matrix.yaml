@@ -1,0 +1,93 @@
+urn: urn:veridian:risk:library:veridian-lxi-5x5
+locale: en
+ref_id: veridian-lxi-5x5
+name: Veridian Custom Risk Matrix (L×I methodology)
+description: 'Reproduces VIGCAP''s own risk methodology (docs/risk-methodology.md) exactly: Inherent Risk
+  = Likelihood x Impact, banded Low 1-6 / Medium 7-12 / High 13-19 / Critical 20-25. Not a built-in CISO
+  Assistant library matrix.'
+version: 1
+publication_date: '2026-08-26'
+provider: Veridian LegalTech (synthetic, portfolio project)
+packager: veridian
+objects:
+  risk_matrix:
+  - urn: urn:veridian:risk:matrix:veridian-lxi-5x5
+    ref_id: veridian-lxi-5x5
+    name: Veridian Custom Risk Matrix (L×I methodology)
+    description: 'Reproduces VIGCAP''s own risk methodology (docs/risk-methodology.md) exactly: Inherent
+      Risk = Likelihood x Impact, banded Low 1-6 / Medium 7-12 / High 13-19 / Critical 20-25.'
+    probability:
+    - abbreviation: R
+      name: Rare
+      description: Rare
+    - abbreviation: U
+      name: Unlikely
+      description: Unlikely
+    - abbreviation: P
+      name: Possible
+      description: Possible
+    - abbreviation: L
+      name: Likely
+      description: Likely
+    - abbreviation: AC
+      name: Almost Certain
+      description: Almost Certain
+    impact:
+    - abbreviation: N
+      name: Negligible
+      description: Negligible
+    - abbreviation: Mi
+      name: Minor
+      description: Minor
+    - abbreviation: Mo
+      name: Moderate
+      description: Moderate
+    - abbreviation: Ma
+      name: Major
+      description: Major
+    - abbreviation: S
+      name: Severe
+      description: Severe
+    risk:
+    - abbreviation: L
+      name: Low
+      description: Low risk band, per docs/risk-methodology.md
+      hexcolor: '#3F6B4F'
+    - abbreviation: M
+      name: Medium
+      description: Medium risk band, per docs/risk-methodology.md
+      hexcolor: '#C08A2E'
+    - abbreviation: H
+      name: High
+      description: High risk band, per docs/risk-methodology.md
+      hexcolor: '#B08D57'
+    - abbreviation: C
+      name: Critical
+      description: Critical risk band, per docs/risk-methodology.md
+      hexcolor: '#7A2E2E'
+    grid:
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 1
+      - 1
+    - - 0
+      - 0
+      - 1
+      - 1
+      - 2
+    - - 0
+      - 1
+      - 1
+      - 2
+      - 3
+    - - 0
+      - 1
+      - 2
+      - 3
+      - 3
