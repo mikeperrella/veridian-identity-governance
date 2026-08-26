@@ -17,9 +17,9 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **R-011** — Admin console over-privilege on critical SaaS/cloud platforms — `treatment_rationale`
 - [x] **R-012** — Contractor access lifecycle not tied to engagement end date — `treatment_rationale`
 - [x] **R-013** — SSO coverage gap on the legacy e-discovery application — `treatment_rationale`, `compensating_control`, `escalation_path`
-- [ ] **R-014** — Break-glass emergency access lacks logging and review — `treatment_rationale`
-- [ ] **R-015** — SOC 2 evidence collection is scattered and untracked — `treatment_rationale`
-- [ ] **R-016** — Multi-tenant data isolation has not been independently tested — `treatment_rationale`
+- [x] **R-014** — Break-glass emergency access lacks logging and review — `treatment_rationale`
+- [x] **R-015** — SOC 2 evidence collection is scattered and untracked — `treatment_rationale`
+- [x] **R-016** — Multi-tenant data isolation has not been independently tested — `treatment_rationale`
 
 ## Control Catalog (`controls/control-catalog.csv`) — 10 items
 
