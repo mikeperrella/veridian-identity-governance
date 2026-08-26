@@ -1,0 +1,13 @@
+vendor_id,vendor_name,service_provided,systems_accessed,accesses_client_data,access_level,last_reviewed_date,contract_status
+VEN-001,Okta,Identity provider (IdP),Okta tenant,Y,Admin,,Active
+VEN-002,GitHub,Source control / CI-CD,GitHub org,N,Admin,,Active
+VEN-003,Slack,Team collaboration,Slack workspace,Y,Admin,2025-08-21,Active
+VEN-004,Notion,Internal documentation,Notion workspace,N,Admin,2025-04-16,Active
+VEN-005,Stripe,Payment processing,Stripe account,Y,Standard,2026-05-23,Active
+VEN-006,Salesforce,CRM,Salesforce org,Y,Admin,2025-05-01,Renewal Pending
+VEN-007,Amazon Web Services,Cloud infrastructure,AWS Organization,Y,Admin,2026-03-11,Active
+VEN-008,Gusto (Payroll Processor),Payroll and benefits administration,HRIS integration,N,Standard,2025-08-14,Active
+VEN-009,Relativity (E-Discovery Subprocessor),E-discovery data processing for select customer matters,"S3, Legacy E-Discovery App",Y,Standard,,Active
+VEN-010,Datadog,Monitoring and observability,AWS accounts,N,Standard,2025-04-08,Active
+VEN-011,Zendesk,Customer support tooling,Support Tooling,Y,Standard,,Active
+VEN-012,DocuSign,E-signature for contracts,Salesforce integration,N,Standard,2025-04-06,Active

@@ -1,0 +1,16 @@
+asset_id,asset_name,asset_type,category,data_sensitivity,hosting,owner_department,notes
+AST-001,Okta,Identity Provider,IdP,High,SaaS,IT/Security,SSO + MFA enforcement for most connected apps
+AST-002,AWS Production Account,Cloud Infrastructure,Cloud,High,AWS,Engineering,Hosts customer-facing production workloads
+AST-003,AWS Staging Account,Cloud Infrastructure,Cloud,Medium,AWS,Engineering,Pre-production environment
+AST-004,AWS Security/Logging Account,Cloud Infrastructure,Cloud,High,AWS,IT/Security,Centralized log aggregation and security tooling
+AST-005,EKS Production Cluster,Container Platform,Cloud,High,AWS,Engineering,Runs primary application workloads
+AST-006,S3 - Client Document Storage,Object Storage,Cloud,High,AWS,Engineering,Stores client matter documents and e-discovery artifacts
+AST-007,RDS - Primary Application DB,Database,Cloud,High,AWS,Engineering,Stores matter metadata and application state
+AST-008,Next.js Frontend,Application,App,Medium,AWS,Engineering,Customer-facing web application
+AST-009,GitHub,Source Control,Repo,High,SaaS,Engineering,Source code and CI/CD pipeline definitions
+AST-010,Slack,Collaboration,SaaS,Medium,SaaS,IT/Security,Internal communication; some client-related discussion occurs here
+AST-011,Notion,Knowledge Base,SaaS,Medium,SaaS,People/HR,Internal documentation and process wiki
+AST-012,Stripe,Billing,SaaS,Medium,SaaS,Finance,Subscription billing and payment processing
+AST-013,Salesforce,CRM,SaaS,Medium,SaaS,Sales,Customer and pipeline records
+AST-014,HRIS Platform,HR System,SaaS,High,SaaS,People/HR,"Employee records, source of truth for joiner/mover/leaver events"
+AST-015,Legacy E-Discovery App,Internal Application,App,High,AWS,Engineering,Older service predating current SSO rollout; partial Okta integration

@@ -1,0 +1,196 @@
+employee_id,full_name,email,department,title,employment_type,manager_id,hire_date,term_date,status,okta_status,mfa_enrolled,role_category,last_access_review_date
+EMP-0001,Allison Hill,allison.hill@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,,2024-03-10,,Active,Active,Y,Standard,2026-06-23
+EMP-0002,Noah Rhodes,noah.rhodes@veridianlegaltech.example,Marketing,Marketing Manager,FTE,,2021-01-25,,Active,Active,Y,Standard,2026-02-14
+EMP-0003,Angie Henderson,angie.henderson@veridianlegaltech.example,Product,Product Manager,FTE,,2022-03-10,,Active,Active,Y,Standard,
+EMP-0004,Daniel Wagner,daniel.wagner@veridianlegaltech.example,People/HR,HRIS Administrator,FTE,,2022-04-19,,Active,Active,Y,Admin,
+EMP-0005,Cristian Santos,cristian.santos@veridianlegaltech.example,Finance,Controller,FTE,,2020-07-25,,Active,Active,Y,Privileged,2026-05-08
+EMP-0006,Connie Lawrence,connie.lawrence@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0003,2022-09-19,,Active,Active,Y,Standard,2025-12-11
+EMP-0007,Abigail Shaffer,abigail.shaffer@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0006,2023-03-03,2024-08-15,Terminated,Active,Y,Standard,2026-07-19
+EMP-0008,Gina Moore,gina.moore@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0003,2024-11-25,,Active,Active,Y,Admin,2025-11-01
+EMP-0009,Gabrielle Davis,gabrielle.davis@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0007,2023-05-10,,Active,Active,Y,Standard,
+EMP-0010,Ryan Munoz,ryan.munoz@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0007,2021-07-23,,Active,Active,Y,Standard,
+EMP-0011,Monica Herrera,monica.herrera@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0003,2020-12-13,,Active,Active,Y,Standard,2025-10-21
+EMP-0012,Jamie Arnold,jamie.arnold@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0009,2020-07-13,,Active,Active,Y,Standard,2026-01-01
+EMP-0013,Lisa Hensley,lisa.hensley@veridianlegaltech.example,Engineering,DevOps Engineer,FTE,EMP-0007,2023-12-31,,Active,Active,Y,Privileged,2026-06-04
+EMP-0014,Michele Williams,michele.williams@veridianlegaltech.example,Sales,Sales Development Rep,Contractor,EMP-0011,2024-03-22,,Active,Active,Y,Standard,2025-10-19
+EMP-0015,Dylan Miller,dylan.miller@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0001,2021-04-16,,Active,Active,Y,Standard,2026-05-24
+EMP-0016,Brian Ramirez,brian.ramirez@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0005,2020-10-20,,Active,Active,Y,Standard,
+EMP-0017,Holly Wood,holly.wood@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0005,2023-05-10,,Active,Active,Y,Standard,2025-09-30
+EMP-0018,Derek Zuniga,derek.zuniga@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0007,2023-04-04,,Active,Active,Y,Standard,
+EMP-0019,Lisa Jackson,lisa.jackson@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0008,2022-05-31,,Active,Active,Y,Privileged,2026-05-13
+EMP-0020,Carla Gray,carla.gray@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0002,2023-06-22,,Active,Active,Y,Standard,2026-08-23
+EMP-0021,Margaret Hawkins DDS,margaret.hawkins.dds@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0007,2024-12-29,,Active,Active,Y,Standard,2026-05-01
+EMP-0022,Patty Perez,patty.perez@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0004,2025-02-14,,Active,Active,Y,Admin,2025-09-08
+EMP-0023,Ethan Adams,ethan.adams@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0022,2022-07-20,2024-12-07,Terminated,Active,Y,Standard,
+EMP-0024,Tommy Walter,tommy.walter@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0015,2022-01-28,,Active,Active,Y,Standard,2026-05-27
+EMP-0025,Matthew Foster,matthew.foster@veridianlegaltech.example,Sales,Sales Development Rep,FTE,EMP-0004,2022-10-08,,Active,Active,Y,Standard,2026-06-03
+EMP-0026,Judy Baker,judy.baker@veridianlegaltech.example,Engineering,DevOps Engineer,FTE,EMP-0016,2024-11-11,,Active,Suspended,Y,Admin,2026-06-19
+EMP-0027,Justin Baker,justin.baker@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0009,2020-07-03,2022-06-07,Terminated,Deprovisioned,Y,Standard,
+EMP-0028,Stephanie Ross,stephanie.ross@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0005,2024-04-09,,Active,Active,Y,Standard,
+EMP-0029,Zachary Hicks,zachary.hicks@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0016,2020-07-02,2021-04-07,Terminated,Active,Y,Standard,2026-06-21
+EMP-0030,Anthony Rodriguez,anthony.rodriguez@veridianlegaltech.example,IT/Security,Security Engineer,Contractor,EMP-0029,2023-01-09,,Active,Active,Y,Admin,2026-05-13
+EMP-0031,Rebecca Henderson,rebecca.henderson@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0011,2020-05-25,,Active,Active,Y,Standard,2026-05-20
+EMP-0032,James Ferrell,james.ferrell@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0010,2021-12-08,,Active,Active,Y,Standard,
+EMP-0033,Tricia Valencia,tricia.valencia@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0005,2020-07-31,,Active,Suspended,Y,Standard,2025-10-16
+EMP-0034,Nathan Maldonado,nathan.maldonado@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0029,2020-12-01,,Active,Active,Y,Privileged,2026-05-18
+EMP-0035,Debra Davidson,debra.davidson@veridianlegaltech.example,IT/Security,Identity & Access Engineer,FTE,EMP-0007,2024-09-12,,Active,Active,Y,Admin,2026-07-21
+EMP-0036,Jeffrey Chavez,jeffrey.chavez@veridianlegaltech.example,Sales,Sales Development Rep,Contractor,EMP-0014,2020-10-10,2022-08-07,Terminated,Deprovisioned,Y,Standard,
+EMP-0037,Sherri Baker,sherri.baker@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0003,2024-12-01,,Active,Active,Y,Standard,
+EMP-0038,Cassandra Gaines,cassandra.gaines@veridianlegaltech.example,Engineering,Staff Engineer,FTE,EMP-0028,2023-09-30,,Active,Active,Y,Privileged,2026-07-27
+EMP-0039,Elizabeth Fowler,elizabeth.fowler@veridianlegaltech.example,IT/Security,IT Support Specialist,Contractor,EMP-0038,2025-02-15,,Active,Active,N,Privileged,2026-06-14
+EMP-0040,Brittany Farmer,brittany.farmer@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0023,2020-05-29,,Active,Active,Y,Privileged,
+EMP-0041,Paula Moreno,paula.moreno@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0010,2022-02-27,,Active,Active,Y,Standard,2026-07-09
+EMP-0042,Fred Smith,fred.smith@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0027,2024-09-20,,Active,Active,Y,Standard,2026-02-12
+EMP-0043,Sherry Decker,sherry.decker@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0015,2024-02-09,,Active,Active,Y,Standard,
+EMP-0044,Anthony Humphrey,anthony.humphrey@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0026,2024-10-10,,Active,Active,Y,Standard,2025-12-02
+EMP-0045,Angelica Tucker,angelica.tucker@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0022,2024-07-05,,Active,Active,Y,Standard,2026-05-27
+EMP-0046,Philip Cannon,philip.cannon@veridianlegaltech.example,Engineering,Software Engineer,FTE,EMP-0039,2021-08-21,,Active,Active,Y,Standard,2025-10-20
+EMP-0047,John Pierce,john.pierce@veridianlegaltech.example,Legal & Compliance,Paralegal,FTE,EMP-0013,2021-12-07,,Active,Active,Y,Standard,2026-06-17
+EMP-0048,Shane Henderson,shane.henderson@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0043,2020-03-08,,Active,Active,Y,Standard,
+EMP-0049,Joshua Blair,joshua.blair@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0008,2023-11-25,,Active,Active,Y,Standard,
+EMP-0050,Eric Carney,eric.carney@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0027,2022-06-19,,Active,Active,Y,Standard,2025-12-02
+EMP-0051,Jessica Holmes,jessica.holmes@veridianlegaltech.example,Legal & Compliance,General Counsel,FTE,EMP-0020,2021-02-24,,Active,Active,Y,Standard,2025-08-26
+EMP-0052,Danny Morgan,danny.morgan@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0014,2023-06-05,,Active,Active,Y,Standard,2026-08-06
+EMP-0053,Crystal Robinson,crystal.robinson@veridianlegaltech.example,IT/Security,IT Manager,FTE,EMP-0022,2024-08-21,,Active,Active,Y,Privileged,2025-12-27
+EMP-0054,Mark Perez,mark.perez@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0040,2021-06-08,,Active,Active,Y,Standard,2026-04-26
+EMP-0055,Shannon Jones,shannon.jones@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0016,2023-09-15,,Active,Active,Y,Standard,2026-03-18
+EMP-0056,Michael Lewis,michael.lewis@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0015,2024-05-20,,Active,Active,Y,Standard,
+EMP-0057,Timothy Duncan,timothy.duncan@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0052,2020-06-15,,Active,Active,Y,Standard,2025-11-02
+EMP-0058,Richard Aguirre,richard.aguirre@veridianlegaltech.example,People/HR,HRIS Administrator,FTE,EMP-0033,2023-04-23,2025-03-02,Terminated,Deprovisioned,Y,Privileged,2026-01-22
+EMP-0059,Brent Jordan,brent.jordan@veridianlegaltech.example,Legal & Compliance,General Counsel,FTE,EMP-0054,2021-01-24,,Active,Active,Y,Standard,2025-12-30
+EMP-0060,John Daniel,john.daniel@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0022,2021-07-07,,Active,Active,Y,Standard,2026-01-12
+EMP-0061,Victoria Garcia,victoria.garcia@veridianlegaltech.example,Finance,Controller,Contractor,EMP-0022,2021-01-07,,Active,Active,Y,Privileged,2026-06-19
+EMP-0062,Gerald Hensley,gerald.hensley@veridianlegaltech.example,IT/Security,IT Manager,FTE,EMP-0002,2021-05-02,,Active,Active,Y,Admin,
+EMP-0063,Connor West,connor.west@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0062,2022-02-23,2023-11-26,Terminated,Deprovisioned,Y,Standard,
+EMP-0064,Donald Wright,donald.wright@veridianlegaltech.example,Legal & Compliance,General Counsel,FTE,EMP-0028,2023-03-28,,Active,Active,Y,Standard,2026-01-12
+EMP-0065,Jessica Callahan,jessica.callahan@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0017,2023-12-04,,Active,Active,Y,Standard,2026-04-22
+EMP-0066,Amber Kidd,amber.kidd@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0018,2023-06-30,,Active,Active,N,Standard,
+EMP-0067,Tracy House,tracy.house@veridianlegaltech.example,People/HR,HR Business Partner,Contractor,EMP-0036,2022-04-20,,Active,Active,Y,Standard,
+EMP-0068,Carol Tucker,carol.tucker@veridianlegaltech.example,Legal & Compliance,Paralegal,FTE,EMP-0045,2022-10-24,,Active,Suspended,Y,Standard,
+EMP-0069,James Brown,james.brown@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0020,2023-10-30,,Active,Active,N,Standard,2025-09-05
+EMP-0070,William Baker,william.baker@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0048,2020-10-25,,Active,Active,Y,Standard,
+EMP-0071,Jordan Henderson,jordan.henderson@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0040,2024-05-14,2026-06-18,Terminated,Deprovisioned,Y,Standard,
+EMP-0072,Whitney Peters,whitney.peters@veridianlegaltech.example,Product,Product Designer,Contractor,EMP-0026,2021-12-03,,Active,Active,Y,Standard,
+EMP-0073,Brittney Phillips,brittney.phillips@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0016,2023-09-10,,Active,Active,Y,Standard,2026-08-11
+EMP-0074,Lauren Daniels,lauren.daniels@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0002,2022-07-30,,Active,Active,Y,Standard,
+EMP-0075,Amy Silva,amy.silva@veridianlegaltech.example,Legal & Compliance,Paralegal,Contractor,EMP-0035,2022-03-16,,Active,Active,Y,Standard,2026-05-20
+EMP-0076,Sarah Moore,sarah.moore@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0012,2024-10-21,,Active,Active,Y,Standard,
+EMP-0077,Angela Lopez,angela.lopez@veridianlegaltech.example,Marketing,Content Marketer,FTE,EMP-0042,2022-10-12,,Active,Active,Y,Standard,2026-05-06
+EMP-0078,Megan Young,megan.young@veridianlegaltech.example,Sales,Sales Development Rep,FTE,EMP-0072,2024-08-24,,Active,Active,Y,Standard,2026-01-14
+EMP-0079,Steve Sanchez,steve.sanchez@veridianlegaltech.example,Engineering,Platform Engineer,FTE,EMP-0063,2020-08-27,,Active,Active,Y,Admin,2026-06-27
+EMP-0080,Lisa Barnes,lisa.barnes@veridianlegaltech.example,People/HR,HR Business Partner,Contractor,EMP-0068,2021-06-01,,Active,Active,Y,Standard,2026-06-05
+EMP-0081,Kelly Donovan,kelly.donovan@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0030,2023-04-06,,Active,Active,Y,Standard,2026-01-01
+EMP-0082,Mike Allen,mike.allen@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0025,2020-11-04,,Active,Active,Y,Standard,
+EMP-0083,Michael Evans,michael.evans@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0025,2023-06-25,,Active,Active,Y,Standard,2025-10-16
+EMP-0084,Paul Jones,paul.jones@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0071,2021-11-14,,Active,Suspended,Y,Standard,2025-09-22
+EMP-0085,Zachary Ferrell,zachary.ferrell@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0074,2023-10-02,,Active,Active,Y,Standard,
+EMP-0086,Daniel Baker,daniel.baker@veridianlegaltech.example,Marketing,Content Marketer,FTE,EMP-0062,2022-01-31,,Active,Active,Y,Standard,
+EMP-0087,Shirley Suarez,shirley.suarez@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0039,2020-08-03,,Active,Active,Y,Standard,2026-06-10
+EMP-0088,Christopher Bass,christopher.bass@veridianlegaltech.example,Product,Product Manager,Contractor,EMP-0049,2024-06-17,,Active,Active,Y,Standard,
+EMP-0089,Lisa Archer,lisa.archer@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0079,2023-06-23,,Active,Active,Y,Standard,
+EMP-0090,Aimee Montoya,aimee.montoya@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0021,2021-08-28,,Active,Active,Y,Standard,2025-10-03
+EMP-0091,Matthew Mcmillan,matthew.mcmillan@veridianlegaltech.example,Engineering,Engineering Manager,FTE,EMP-0037,2025-03-04,,Active,Active,Y,Privileged,2026-07-27
+EMP-0092,Brian Rodriguez,brian.rodriguez@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0085,2025-04-06,,Active,Active,Y,Standard,
+EMP-0093,Denise Jacobs,denise.jacobs@veridianlegaltech.example,Customer Success,Onboarding Specialist,Contractor,EMP-0010,2025-04-23,,Active,Active,N,Standard,2025-11-06
+EMP-0094,Christina Walters,christina.walters@veridianlegaltech.example,Engineering,Senior Software Engineer,FTE,EMP-0057,2025-05-06,,Active,Active,Y,Standard,
+EMP-0095,John Whitehead,john.whitehead@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0057,2025-05-19,,Active,Active,Y,Standard,2026-05-05
+EMP-0096,Anna Henderson,anna.henderson@veridianlegaltech.example,Product,Product Designer,Contractor,EMP-0074,2025-05-29,,Active,Active,Y,Standard,2026-08-06
+EMP-0097,Aaron Wise,aaron.wise@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0061,2025-06-08,,Active,Active,Y,Standard,2025-11-23
+EMP-0098,Deborah Figueroa,deborah.figueroa@veridianlegaltech.example,IT/Security,IT Manager,FTE,EMP-0061,2025-06-18,,Active,Active,Y,Privileged,2026-05-09
+EMP-0099,Jessica Smith,jessica.smith@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0064,2025-06-27,,Active,Active,Y,Standard,2026-08-16
+EMP-0100,Stephen Mckee,stephen.mckee@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0033,2025-07-05,,Active,Active,Y,Standard,2026-02-03
+EMP-0101,Sandra Aguilar,sandra.aguilar@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0085,2025-07-13,,Active,Active,Y,Standard,
+EMP-0102,Cameron Parker,cameron.parker@veridianlegaltech.example,IT/Security,IT Manager,FTE,EMP-0007,2025-07-21,,Active,Active,Y,Admin,2026-02-01
+EMP-0103,Rebecca Valencia,rebecca.valencia@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0016,2025-07-28,,Active,Active,Y,Standard,
+EMP-0104,Christine Wright,christine.wright@veridianlegaltech.example,Engineering,DevOps Engineer,FTE,EMP-0029,2025-08-05,,Active,Active,Y,Admin,2025-08-14
+EMP-0105,Richard Henson,richard.henson@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0038,2025-08-12,,Active,Active,Y,Standard,
+EMP-0106,Marc Moore,marc.moore@veridianlegaltech.example,IT/Security,Identity & Access Engineer,FTE,EMP-0077,2025-08-19,,Active,Active,Y,Admin,2026-05-22
+EMP-0107,Sharon Cherry,sharon.cherry@veridianlegaltech.example,IT/Security,Security Engineer,FTE,EMP-0065,2025-08-25,,Active,Active,Y,Privileged,
+EMP-0108,Sierra Johnson,sierra.johnson@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0063,2025-09-01,,Active,Active,Y,Standard,
+EMP-0109,Evelyn Galvan,evelyn.galvan@veridianlegaltech.example,Sales,Sales Development Rep,FTE,EMP-0049,2025-09-07,2026-04-01,Terminated,Deprovisioned,Y,Standard,
+EMP-0110,Sharon Cochran,sharon.cochran@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0006,2025-09-13,,Active,Active,Y,Standard,2026-03-24
+EMP-0111,Richard Rodriguez,richard.rodriguez@veridianlegaltech.example,Finance,Controller,FTE,EMP-0102,2025-09-19,,Active,Active,Y,Privileged,
+EMP-0112,Shannon Walker,shannon.walker@veridianlegaltech.example,Sales,Sales Development Rep,FTE,EMP-0109,2025-09-25,,Active,Active,Y,Standard,2025-10-16
+EMP-0113,Julia Torres,julia.torres@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0020,2025-10-01,,Active,Active,Y,Standard,2026-07-27
+EMP-0114,Crystal Johnson,crystal.johnson@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0110,2025-10-07,,Active,Active,Y,Standard,2025-10-06
+EMP-0115,Garrett Lin,garrett.lin@veridianlegaltech.example,Finance,Controller,FTE,EMP-0063,2025-10-12,,Active,Active,Y,Privileged,2026-02-01
+EMP-0116,Diana May,diana.may@veridianlegaltech.example,IT/Security,IT Support Specialist,FTE,EMP-0096,2025-10-18,,Active,Active,Y,Privileged,2026-05-27
+EMP-0117,William Herrera,william.herrera@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0089,2025-10-23,,Active,Active,Y,Standard,2025-11-19
+EMP-0118,Ashley Waller,ashley.waller@veridianlegaltech.example,Marketing,Marketing Manager,Contractor,EMP-0053,2025-10-29,,Active,Active,Y,Standard,2026-05-24
+EMP-0119,Victor Baker,victor.baker@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0031,2025-11-03,,Active,Active,Y,Standard,
+EMP-0120,Jeffrey Chandler,jeffrey.chandler@veridianlegaltech.example,People/HR,HRIS Administrator,FTE,EMP-0060,2025-11-08,,Active,Active,Y,Admin,2026-08-08
+EMP-0121,Larry Dixon,larry.dixon@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0039,2025-11-13,,Active,Active,Y,Standard,
+EMP-0122,Kenneth Scott,kenneth.scott@veridianlegaltech.example,Legal & Compliance,General Counsel,FTE,EMP-0014,2025-11-18,,Active,Active,Y,Standard,2026-04-30
+EMP-0123,April Frost,april.frost@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0051,2025-11-23,,Active,Active,Y,Standard,2026-07-29
+EMP-0124,Michelle Harmon,michelle.harmon@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0096,2025-11-28,,Active,Active,Y,Standard,2026-07-02
+EMP-0125,Helen Jones,helen.jones@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0080,2025-12-03,,Active,Active,Y,Standard,2025-12-01
+EMP-0126,Erin Edwards,erin.edwards@veridianlegaltech.example,Marketing,Demand Gen Specialist,FTE,EMP-0116,2025-12-08,,Active,Active,Y,Standard,2025-10-14
+EMP-0127,Michelle Evans,michelle.evans@veridianlegaltech.example,Engineering,Staff Engineer,FTE,EMP-0038,2025-12-13,,Active,Active,Y,Privileged,2026-08-22
+EMP-0128,Jason Powell,jason.powell@veridianlegaltech.example,Finance,Controller,FTE,EMP-0047,2025-12-17,,Active,Active,Y,Privileged,
+EMP-0129,Cameron Fisher,cameron.fisher@veridianlegaltech.example,IT/Security,Identity & Access Engineer,FTE,EMP-0087,2025-12-22,,Active,Active,Y,Privileged,2026-01-29
+EMP-0130,Megan Orr,megan.orr@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0102,2025-12-27,,Active,Active,Y,Standard,
+EMP-0131,Elizabeth Kelley,elizabeth.kelley@veridianlegaltech.example,IT/Security,Identity & Access Engineer,Contractor,EMP-0068,2025-12-31,,Active,Active,N,Admin,2026-08-01
+EMP-0132,Dustin Jordan,dustin.jordan@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0084,2026-01-05,,Active,Active,Y,Standard,2025-09-07
+EMP-0133,Mary Marshall,mary.marshall@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0105,2026-01-09,,Active,Active,Y,Standard,
+EMP-0134,Daniel Kennedy,daniel.kennedy@veridianlegaltech.example,Product,Product Manager,Contractor,EMP-0035,2026-01-14,,Active,Active,Y,Standard,2026-05-28
+EMP-0135,Rebecca Jackson,rebecca.jackson@veridianlegaltech.example,Legal & Compliance,Paralegal,FTE,EMP-0040,2026-01-18,,Active,Active,Y,Standard,2026-06-22
+EMP-0136,Jose Schultz,jose.schultz@veridianlegaltech.example,Legal & Compliance,General Counsel,Contractor,EMP-0056,2026-01-22,,Active,Active,Y,Standard,2026-03-03
+EMP-0137,Robert Potter,robert.potter@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0092,2026-01-27,,Active,Active,Y,Standard,
+EMP-0138,Courtney Gonzalez,courtney.gonzalez@veridianlegaltech.example,Engineering,Engineering Manager,FTE,EMP-0055,2026-01-31,,Active,Active,Y,Privileged,2025-08-14
+EMP-0139,David Alvarez,david.alvarez@veridianlegaltech.example,Support,Support Engineer,Contractor,EMP-0054,2026-02-04,,Active,Active,Y,Standard,2026-06-05
+EMP-0140,Angel Perry,angel.perry@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0001,2026-02-08,2026-05-08,Terminated,Deprovisioned,Y,Standard,2026-06-27
+EMP-0141,Cheyenne Horton,cheyenne.horton@veridianlegaltech.example,Marketing,Marketing Manager,FTE,EMP-0034,2026-02-12,,Active,Active,Y,Standard,2025-09-08
+EMP-0142,David Douglas Jr.,david.douglas.jr.@veridianlegaltech.example,Engineering,Staff Engineer,FTE,EMP-0033,2026-02-17,,Active,Active,Y,Privileged,2026-05-04
+EMP-0143,Patricia Rodriguez,patricia.rodriguez@veridianlegaltech.example,Legal & Compliance,General Counsel,Contractor,EMP-0129,2026-02-21,,Active,Active,Y,Standard,2026-04-14
+EMP-0144,Christopher Rubio,christopher.rubio@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0008,2026-02-25,,Active,Active,Y,Standard,2026-07-21
+EMP-0145,Amber Wright,amber.wright@veridianlegaltech.example,Engineering,Engineering Manager,FTE,EMP-0019,2026-03-01,,Active,Active,Y,Privileged,2025-11-12
+EMP-0146,Joyce Solis,joyce.solis@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0141,2026-03-05,,Active,Active,Y,Standard,
+EMP-0147,Victoria Larson,victoria.larson@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0026,2026-03-09,,Active,Active,Y,Standard,
+EMP-0148,Stephanie Salazar,stephanie.salazar@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0059,2026-03-13,,Active,Active,Y,Standard,2026-04-14
+EMP-0149,Kathy Rivas,kathy.rivas@veridianlegaltech.example,Legal & Compliance,Paralegal,FTE,EMP-0066,2026-03-17,,Active,Active,Y,Standard,2026-02-02
+EMP-0150,Stephanie Manning,stephanie.manning@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0025,2026-03-21,,Active,Active,Y,Standard,2026-04-04
+EMP-0151,David Wright,david.wright@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0106,2026-03-24,,Active,Active,Y,Standard,2025-10-27
+EMP-0152,Pamela Boyd,pamela.boyd@veridianlegaltech.example,Finance,Controller,FTE,EMP-0080,2026-03-28,2026-06-20,Terminated,Deprovisioned,Y,Privileged,2025-10-03
+EMP-0153,Denise Jones,denise.jones@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0090,2026-04-01,,Active,Active,Y,Standard,2025-10-20
+EMP-0154,Devon Flores,devon.flores@veridianlegaltech.example,IT/Security,Identity & Access Engineer,Contractor,EMP-0143,2026-04-05,,Active,Active,Y,Admin,2025-12-28
+EMP-0155,Brenda Hall,brenda.hall@veridianlegaltech.example,Engineering,Platform Engineer,FTE,EMP-0087,2026-04-09,,Active,Active,Y,Admin,2025-10-09
+EMP-0156,Michelle Brown,michelle.brown@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0008,2026-04-12,,Active,Active,Y,Standard,2026-07-16
+EMP-0157,Joshua Perry,joshua.perry@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0084,2026-04-16,,Active,Active,Y,Standard,2026-02-01
+EMP-0158,Jason Stein,jason.stein@veridianlegaltech.example,Support,Support Engineer,FTE,EMP-0070,2026-04-20,,Active,Active,Y,Standard,2025-10-06
+EMP-0159,Melissa Gates,melissa.gates@veridianlegaltech.example,People/HR,HRIS Administrator,FTE,EMP-0111,2026-04-24,,Active,Active,Y,Admin,2026-06-11
+EMP-0160,Jamie Smith,jamie.smith@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0102,2026-04-27,,Active,Active,Y,Standard,2025-12-16
+EMP-0161,Paul Castaneda,paul.castaneda@veridianlegaltech.example,Support,Support Engineer,Contractor,EMP-0031,2026-05-01,,Active,Active,Y,Standard,2026-02-09
+EMP-0162,Jennifer Adkins,jennifer.adkins@veridianlegaltech.example,Engineering,Engineering Manager,FTE,EMP-0144,2026-05-05,,Active,Active,Y,Privileged,2025-11-27
+EMP-0163,Lindsey Walker,lindsey.walker@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0081,2026-05-08,,Active,Active,Y,Standard,2025-10-04
+EMP-0164,Jeffrey Johnson,jeffrey.johnson@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0044,2026-05-12,2026-08-03,Terminated,Deprovisioned,Y,Standard,2026-02-08
+EMP-0165,Michael Powell,michael.powell@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0063,2026-05-15,,Active,Active,Y,Standard,
+EMP-0166,John Anderson,john.anderson@veridianlegaltech.example,Legal & Compliance,General Counsel,FTE,EMP-0057,2026-05-19,,Active,Active,Y,Standard,
+EMP-0167,Alyssa Long,alyssa.long@veridianlegaltech.example,Finance,Financial Analyst,Contractor,EMP-0090,2026-05-22,,Active,Active,Y,Standard,
+EMP-0168,Alyssa Day,alyssa.day@veridianlegaltech.example,Sales,Account Executive,Contractor,EMP-0020,2026-05-26,,Active,Active,N,Standard,2026-07-27
+EMP-0169,Joel Williams,joel.williams@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0165,2026-05-29,,Active,Active,Y,Standard,2026-06-11
+EMP-0170,Daniel Murphy,daniel.murphy@veridianlegaltech.example,Support,Support Team Lead,FTE,EMP-0162,2026-06-02,,Active,Active,Y,Standard,2026-04-09
+EMP-0171,Jamie Walton,jamie.walton@veridianlegaltech.example,Marketing,Content Marketer,FTE,EMP-0015,2026-06-05,,Active,Active,Y,Standard,2025-09-14
+EMP-0172,Darlene Miller,darlene.miller@veridianlegaltech.example,Finance,Accounts Payable Specialist,Contractor,EMP-0149,2026-06-09,,Active,Active,Y,Standard,2026-04-19
+EMP-0173,Joshua Cooke,joshua.cooke@veridianlegaltech.example,IT/Security,IT Support Specialist,FTE,EMP-0129,2026-06-12,,Active,Active,Y,Privileged,2026-06-27
+EMP-0174,Matthew Harrington,matthew.harrington@veridianlegaltech.example,Sales,Account Executive,FTE,EMP-0045,2026-06-15,2026-08-05,Terminated,Deprovisioned,Y,Standard,2026-07-22
+EMP-0175,Nicole Herring,nicole.herring@veridianlegaltech.example,Engineering,Senior Software Engineer,FTE,EMP-0094,2026-06-19,,Active,Active,Y,Standard,
+EMP-0176,Alex Hernandez,alex.hernandez@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0166,2026-06-22,,Active,Active,Y,Standard,2026-07-15
+EMP-0177,Michael Elliott,michael.elliott@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0155,2026-06-26,,Active,Active,Y,Standard,2026-07-28
+EMP-0178,Michael Wang,michael.wang@veridianlegaltech.example,Sales,Sales Development Rep,Contractor,EMP-0170,2026-06-29,,Active,Active,Y,Standard,
+EMP-0179,Lawrence Adkins,lawrence.adkins@veridianlegaltech.example,Legal & Compliance,Compliance Analyst,FTE,EMP-0033,2026-07-02,,Active,Active,Y,Standard,2026-02-10
+EMP-0180,Robert Oconnell,robert.oconnell@veridianlegaltech.example,IT/Security,IT Support Specialist,FTE,EMP-0055,2026-07-06,,Active,Active,Y,Privileged,2026-05-21
+EMP-0181,Alexander Collins,alexander.collins@veridianlegaltech.example,Finance,Accounts Payable Specialist,FTE,EMP-0130,2026-07-09,,Active,Active,Y,Standard,2025-10-16
+EMP-0182,Tina Sanders,tina.sanders@veridianlegaltech.example,IT/Security,IT Support Specialist,FTE,EMP-0042,2026-07-12,,Active,Active,Y,Privileged,2025-08-30
+EMP-0183,Angela Vaughn,angela.vaughn@veridianlegaltech.example,Sales,Sales Director,FTE,EMP-0094,2026-07-15,,Active,Active,Y,Standard,2026-03-24
+EMP-0184,Ashley Barton,ashley.barton@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0080,2026-07-19,,Active,Active,Y,Standard,2025-12-26
+EMP-0185,Lindsay Martinez,lindsay.martinez@veridianlegaltech.example,People/HR,HR Business Partner,FTE,EMP-0098,2026-07-22,,Active,Active,Y,Standard,2026-01-17
+EMP-0186,Dr. Hannah Patterson,dr..hannah.patterson@veridianlegaltech.example,IT/Security,IT Manager,FTE,EMP-0124,2026-07-25,,Active,Active,Y,Privileged,2026-07-19
+EMP-0187,Jonathan Peterson,jonathan.peterson@veridianlegaltech.example,Finance,Controller,FTE,EMP-0042,2026-07-28,,Active,Active,Y,Privileged,2026-05-08
+EMP-0188,Samantha Garcia,samantha.garcia@veridianlegaltech.example,Marketing,Content Marketer,FTE,EMP-0057,2026-07-31,,Active,Active,Y,Standard,
+EMP-0189,Madison Poole,madison.poole@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0099,2026-08-04,2026-09-03,Terminated,Deprovisioned,Y,Standard,2025-12-24
+EMP-0190,Jessica Gross,jessica.gross@veridianlegaltech.example,Product,Senior Product Manager,FTE,EMP-0167,2026-08-07,2026-09-06,Terminated,Active,Y,Standard,
+EMP-0191,Debra Morton,debra.morton@veridianlegaltech.example,Finance,Financial Analyst,FTE,EMP-0036,2026-08-10,,Active,Active,Y,Standard,
+EMP-0192,Karen Graham,karen.graham@veridianlegaltech.example,People/HR,Recruiter,FTE,EMP-0141,2026-08-13,,Active,Active,N,Standard,2025-11-10
+EMP-0193,Debra Christian,debra.christian@veridianlegaltech.example,Support,Support Team Lead,Contractor,EMP-0118,2026-08-16,,Active,Active,Y,Standard,2026-07-10
+EMP-0194,Angelica Keith,angelica.keith@veridianlegaltech.example,Product,Product Manager,FTE,EMP-0148,2026-08-19,,Active,Active,Y,Standard,
+EMP-0195,John Bishop,john.bishop@veridianlegaltech.example,Customer Success,Customer Success Manager,FTE,EMP-0171,2026-08-22,,Active,Suspended,Y,Standard,2025-11-29
