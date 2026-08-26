@@ -61,6 +61,30 @@ Result: 7 assets typed `PR`, 8 typed `SP`.
 
 `data_sensitivity` (a column in our CSV with no equivalent field on CISO Assistant's Asset object) was preserved by prepending `Data sensitivity: <value>.` to each asset's `description` field, ahead of the original CSV notes text — not silently dropped.
 
+## Risk Import — `current_proba`/`current_impact` Limitation
+
+CISO Assistant's RiskScenario tracks three independent probability/impact pairs — inherent, current (with existing measures), and residual (with planned/extra measures) — each as separate likelihood and impact indices. Our own methodology only reduces a single **combined** `inherent_risk` score (`Likelihood × Impact`) by a control-effectiveness percentage to get `residual_risk`; it never adjusts likelihood and impact independently. There is no principled way to reverse-engineer separate current-state likelihood and impact values from a single reduced combined score without inventing an arbitrary split rule (e.g., "reduce impact first," "reduce both proportionally") that our methodology doc doesn't define and that would misrepresent the reasoning behind each risk's actual treatment.
+
+Rather than fabricate that split, `current_proba` and `current_impact` were set **identical to `inherent_proba`/`inherent_impact` for all 16 risk scenarios**, uniformly, with no per-row exceptions. `risk-register/risk-register.csv`'s `residual_risk` and `residual_risk_band` columns remain the authoritative record of control-adjusted risk for this project — CISO Assistant's `current_level` field does not represent that adjustment for any scenario imported here.
+
+## Risk Scenario Import
+
+1. Created the RiskAssessment container: `name: "Veridian Identity Governance Risk Assessment 2026"`, `risk_matrix: 5a0993eb-231e-4318-94e7-d33655bb58ef` (our custom L×I matrix, confirmed live via `GET /api/risk-matrices/` before use, not hardcoded from memory).
+2. Imported all 16 rows from `risk-register/risk-register.csv` as RiskScenario objects (`inherent_proba`/`inherent_impact` set from `likelihood`/`impact` minus 1; `current_proba`/`current_impact` identical to inherent per the limitation above; `existing_controls`, `treatment`, `justification`, and `ref_id` carried over directly).
+3. Verified via `GET /api/risk-scenarios/`: **count = 16**.
+
+**Independent spot-check** — 3 scenarios fetched individually via `GET /api/risk-scenarios/{id}/` and compared against a separate re-read of `risk-register.csv` (not the values used at creation time), confirming CISO Assistant's own grid lookup — not just the matrix being loaded — actually reproduces our methodology:
+
+| risk_id | L×I | Our methodology band | CISO Assistant `inherent_level` | Match |
+|---|---|---|---|---|
+| R-001 | 4×4=16 | High | High (Likely × Major → High) | Yes |
+| R-002 | 4×5=20 | Critical | Critical (Likely × Severe → Critical) | Yes |
+| R-015 | 4×4=16 | High | High (Likely × Major → High) | Yes |
+
+All three matched exactly. The API response for each scenario also echoed back the matched level's `description` field verbatim as `"<Band> risk band, per docs/risk-methodology.md"` — the text baked into our custom matrix's own definition — confirming the level came from our matrix, not a built-in one that happened to agree.
+
+`residual_proba`, `residual_impact`, and `residual_level` correctly show as unrated (`value: -1`, `name: "--"`) on every scenario, consistent with the current/residual limitation documented above — those fields were never set for any of the 16 imports.
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.
