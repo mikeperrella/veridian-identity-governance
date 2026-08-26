@@ -7,7 +7,7 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **R-001** — No formal joiner-mover-leaver (JML) process — `treatment_rationale`
 - [x] **R-002** — Incomplete offboarding leaves terminated employees with active access — `treatment_rationale`
 - [x] **R-003** — Shared service accounts without individual ownership — `treatment_rationale`
-- [ ] **R-004** — Irregular user access reviews (UARs) for privileged roles — `treatment_rationale`
+- [x] **R-004** — Irregular user access reviews (UARs) for privileged roles — `treatment_rationale`
 - [x] **R-005** — Excess vendor access to client data — `treatment_rationale`
 - [x] **R-006** — Privileged session logging gaps — `treatment_rationale`
 - [x] **R-007** — MFA coverage gap on legacy applications — `treatment_rationale`
@@ -26,7 +26,7 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **C-01** — MFA Enforcement for SSO-Integrated Applications — `control_rationale`
 - [x] **C-02** — Joiner-Mover-Leaver (JML) Provisioning Process — `control_rationale`
 - [x] **C-03** — Termination Deprovisioning (Offboarding) — `control_rationale`
-- [ ] **C-04** — Quarterly UAR for Privileged & Admin Roles — `control_rationale`
+- [x] **C-04** — Quarterly UAR for Privileged & Admin Roles — `control_rationale`
 - [x] **C-05** — Service Account Ownership & Review — `control_rationale`
 - [x] **C-06** — Privileged Session Logging & Break-Glass Monitoring — `control_rationale`
 - [x] **C-07** — Vendor / Third-Party Access Review — `control_rationale`
