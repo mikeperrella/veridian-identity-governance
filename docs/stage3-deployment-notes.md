@@ -91,6 +91,18 @@ Imported all 10 rows from `controls/control-catalog.csv` as AppliedControl objec
 
 `effort` and `priority` were **intentionally left unpopulated** on all 10 controls. Neither field has a corresponding source column in `control-catalog.csv`, and assigning a T-shirt size or a 1-4 priority number now would be inventing a judgment call rather than translating existing data. Both are deferred to Stage 4 ("Control Testing & Findings"), where actual test results and deficiency severity will give a real, evidence-based basis for prioritization — rather than a speculative one assigned before any testing has occurred.
 
+## Risk-to-Control Linking
+
+`control-catalog.csv`'s `linked_risk_ids` column was used to link each AppliedControl to its corresponding RiskScenario(s). This relationship is writable only from the RiskScenario side (`applied_controls`, an array of control UUIDs) — AppliedControl has no reciprocal field pointing back at a risk scenario — so the link was made via `PATCH` to each risk scenario's own endpoint, not by posting anything to the control.
+
+13 of the 16 risk scenarios received a control link; **13/13 PATCH requests succeeded**. Three controls link to two risks each, and all three multi-risk shares were confirmed correct via independent `GET` requests after submission:
+
+- **C-02** (JML Provisioning Process) → R-001 and R-010, both showing the identical control UUID
+- **C-06** (Privileged Session Logging & Break-Glass Monitoring) → R-006 and R-014
+- **C-08** (Least-Privilege Role Design & Entitlement Review) → R-008 and R-011
+
+**R-013, R-015, and R-016 correctly remain unlinked** (`applied_controls: []`) — `control-catalog.csv` never assigns any of the 10 controls to these three risks, so no PATCH was sent for them. This was confirmed directly: a fresh `GET` on R-013 after the linking pass returned an empty `applied_controls` array, not an accidental population.
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.
