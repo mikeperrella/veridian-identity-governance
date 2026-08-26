@@ -11,7 +11,7 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **R-005** — Excess vendor access to client data — `treatment_rationale`
 - [x] **R-006** — Privileged session logging gaps — `treatment_rationale`
 - [x] **R-007** — MFA coverage gap on legacy applications — `treatment_rationale`
-- [ ] **R-008** — Role and privilege sprawl — `treatment_rationale`
+- [x] **R-008** — Role and privilege sprawl — `treatment_rationale`
 - [x] **R-009** — Orphaned accounts with no mapped active employee — `treatment_rationale`
 - [x] **R-010** — Mover events do not trigger access revocation — `treatment_rationale`
 - [x] **R-011** — Admin console over-privilege on critical SaaS/cloud platforms — `treatment_rationale`
@@ -30,7 +30,7 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **C-05** — Service Account Ownership & Review — `control_rationale`
 - [x] **C-06** — Privileged Session Logging & Break-Glass Monitoring — `control_rationale`
 - [x] **C-07** — Vendor / Third-Party Access Review — `control_rationale`
-- [ ] **C-08** — Least-Privilege Role Design & Entitlement Review — `control_rationale`
+- [x] **C-08** — Least-Privilege Role Design & Entitlement Review — `control_rationale`
 - [x] **C-09** — Contractor Access Lifecycle Management — `control_rationale`
 - [ ] **C-10** — Orphaned Account Reconciliation — `control_rationale`
 
