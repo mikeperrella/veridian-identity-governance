@@ -32,7 +32,7 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 - [x] **C-07** — Vendor / Third-Party Access Review — `control_rationale`
 - [x] **C-08** — Least-Privilege Role Design & Entitlement Review — `control_rationale`
 - [x] **C-09** — Contractor Access Lifecycle Management — `control_rationale`
-- [ ] **C-10** — Orphaned Account Reconciliation — `control_rationale`
+- [x] **C-10** — Orphaned Account Reconciliation — `control_rationale`
 
 ## Total
 
