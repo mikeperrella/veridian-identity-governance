@@ -140,6 +140,14 @@ All 12 `PATCH` requests to the relevant RequirementAssessment rows returned HTTP
 | CC7.2.1 | C-06 | C-06 | Yes |
 | CC9.2.2 | C-07 | C-07 | Yes |
 
+## Role-Based User Accounts (Stage 4 Setup)
+
+Created 7 User accounts in CISO Assistant, one per distinct `owner` value already present across `risk-register/risk-register.csv` and `controls/control-catalog.csv` (CTO, Compliance Analyst, Engineering Manager, IT/Security Manager, Legal & Compliance, Procurement / IT Security, VP Engineering). Verified via `GET /api/users/`: **count = 8** (the 7 new accounts plus the existing superuser).
+
+**These are role-based synthetic accounts, not individually named fictional employees.** Each account's `first_name` is set to the exact role-name string already used as `owner` in our CSVs (e.g., `first_name: "IT/Security Manager"`, `last_name` left blank), and each `email` is a lowercase-hyphenated placeholder at `@veridianlegaltech.example` (e.g., `it-security-manager@veridianlegaltech.example`). No `user_groups` or elevated permissions were set — these are plain, non-superuser accounts.
+
+They exist solely so that CISO Assistant's real ownership/assignment relational fields (starting with `Finding.owner`, and any other `owner` M2M field populated going forward — `AppliedControl.owner`, `RiskScenario.owner`, `Asset.owner`) can be set to an actual linked User record instead of either being left unset or having the role name duplicated as free text somewhere. This keeps role attribution as structured, queryable data rather than a string that could drift from the CSVs' `owner` column over time.
+
 ## Where the Credentials Actually Live
 
 The superuser password and the Personal Access Token generated during this session exist only in the running CISO Assistant instance and in the operator's own local notes — neither value appears in this repository, in any command output saved to the repo, or in git history.
