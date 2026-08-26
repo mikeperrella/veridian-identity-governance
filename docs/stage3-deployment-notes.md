@@ -44,7 +44,22 @@ This satisfies Stage 3's Definition of Done: the UI is reachable, and an authent
 
 ## Scope Note
 
-This pass covered deployment and verification only. Importing the actual Veridian risk register, control catalog, and identity/asset inventory into CISO Assistant ("populated," per the fuller reading of Stage 3's DoD) is a distinct follow-up task, not yet done as of this writing.
+The initial pass covered deployment and verification only. Importing the actual Veridian risk register, control catalog, and identity/asset inventory into CISO Assistant ("populated," per the fuller reading of Stage 3's DoD) followed as a distinct task — see below for the asset import; the risk register and control catalog import are still outstanding as of this writing.
+
+## Asset Import — PR/SP Typing Criterion
+
+The 15 rows in `data/asset_inventory.csv` were imported via `POST /api/assets/`. CISO Assistant's `Asset.type` field only accepts two values, `PR` (Primary) or `SP` (Supporting) — this is EBIOS RM terminology, where a **Primary asset** is meant to be an abstract business asset (a business process or a piece of information with inherent value — e.g., "client matter data" as a concept) and a **Supporting asset** is the technical/organizational component that carries it (a server, an application, a network).
+
+That strict EBIOS RM distinction was **not** the criterion actually used here. Every row in our inventory is itself a piece of infrastructure or a SaaS tool (Okta, an S3 bucket, GitHub, Salesforce), not an abstract business asset — under strict EBIOS RM semantics, essentially all 15 would be classified as Supporting assets, since none of them *are* "client matter data," they only *carry* it. Typing them all `SP` would have made the field meaningless (uniform, no signal), so instead each asset was typed by a simpler, explicit criterion:
+
+- **PR** — customer-facing and/or production-critical to Veridian's actual product (e.g., the production EKS cluster, the client-document S3 bucket, the Next.js frontend, Stripe billing)
+- **SP** — internal tooling not part of the customer-facing production path (e.g., Okta, GitHub, Slack, Notion, Salesforce, the HRIS platform)
+
+Result: 7 assets typed `PR`, 8 typed `SP`.
+
+**Flag for later:** if this asset data ever feeds a real EBIOS RM study in CISO Assistant (the platform has dedicated EBIOS RM workflow support), this typing will need to be redone under the strict EBIOS RM definition — the business-criticality criterion used here is a reasonable stand-in for a first import, not a substitute for actual EBIOS RM asset modeling.
+
+`data_sensitivity` (a column in our CSV with no equivalent field on CISO Assistant's Asset object) was preserved by prepending `Data sensitivity: <value>.` to each asset's `description` field, ahead of the original CSV notes text — not silently dropped.
 
 ## Where the Credentials Actually Live
 
