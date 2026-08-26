@@ -4,9 +4,9 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 
 ## Risk Register (`risk-register/risk-register.csv`) — 16 items
 
-- [ ] **R-001** — No formal joiner-mover-leaver (JML) process — `treatment_rationale`
-- [ ] **R-002** — Incomplete offboarding leaves terminated employees with active access — `treatment_rationale`
-- [ ] **R-003** — Shared service accounts without individual ownership — `treatment_rationale`
+- [x] **R-001** — No formal joiner-mover-leaver (JML) process — `treatment_rationale`
+- [x] **R-002** — Incomplete offboarding leaves terminated employees with active access — `treatment_rationale`
+- [x] **R-003** — Shared service accounts without individual ownership — `treatment_rationale`
 - [ ] **R-004** — Irregular user access reviews (UARs) for privileged roles — `treatment_rationale`
 - [ ] **R-005** — Excess vendor access to client data — `treatment_rationale`
 - [ ] **R-006** — Privileged session logging gaps — `treatment_rationale`
@@ -24,10 +24,10 @@ Per `CLAUDE.md` Section 8, every DRAFT judgment call below needs to be rewritten
 ## Control Catalog (`controls/control-catalog.csv`) — 10 items
 
 - [ ] **C-01** — MFA Enforcement for SSO-Integrated Applications — `control_rationale`
-- [ ] **C-02** — Joiner-Mover-Leaver (JML) Provisioning Process — `control_rationale`
-- [ ] **C-03** — Termination Deprovisioning (Offboarding) — `control_rationale`
+- [x] **C-02** — Joiner-Mover-Leaver (JML) Provisioning Process — `control_rationale`
+- [x] **C-03** — Termination Deprovisioning (Offboarding) — `control_rationale`
 - [ ] **C-04** — Quarterly UAR for Privileged & Admin Roles — `control_rationale`
-- [ ] **C-05** — Service Account Ownership & Review — `control_rationale`
+- [x] **C-05** — Service Account Ownership & Review — `control_rationale`
 - [ ] **C-06** — Privileged Session Logging & Break-Glass Monitoring — `control_rationale`
 - [ ] **C-07** — Vendor / Third-Party Access Review — `control_rationale`
 - [ ] **C-08** — Least-Privilege Role Design & Entitlement Review — `control_rationale`
