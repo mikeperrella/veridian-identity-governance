@@ -57,6 +57,14 @@ Each risk's existing control(s) are rated for how much they actually reduce the 
 
 The result is re-banded using the same Low/Medium/High/Critical thresholds from Section 2. This is the number that actually drives prioritization and treatment decisions — inherent risk alone is not actionable, since it ignores what's already in place.
 
+## 4a. Mapping Residual Risk into CISO Assistant's Independent Likelihood/Impact Indices
+
+CISO Assistant's RiskScenario model requires residual risk to be expressed as two independent index values (`residual_proba`, `residual_impact`), not the single combined score this document uses. Section 4's formula reduces one combined score and cannot be split into two independent factors by applying the same percentage to both: since Inherent = Likelihood × Impact, reducing *both* factors by the same fraction `f = (1 − effectiveness)` reduces the implied product by `f²`, not `f`. A documented 25% reduction (`f = 0.75`) would behave like a `1 − 0.75² ≈ 44%` reduction if applied to both factors — silently overstating every control's effectiveness.
+
+Instead, `scripts/risk_scoring.py` reduces **only the Likelihood index**, floored to the nearest valid matrix index; **Impact is left unchanged at its inherent value**. Rationale: every control in this catalog (MFA, JML, quarterly UAR, least-privilege review, session logging, vendor access review) is a **preventive access-governance control** — its function is to reduce the probability that unauthorized access occurs, not to reduce the severity of what's exposed once it does. Impact is a property of the data or system being protected (client matter data, SOC 2 exposure), not something an access control changes.
+
+This mapping is a best-effort representation inside CISO Assistant's data model and will not always reproduce the same band as this document's `residual_risk`/`residual_risk_band` (the two systems use different formulas by necessity — CISO Assistant's risk matrix is a hand-authored, non-linear grid lookup, not a multiplicative formula). This document's `residual_risk` and `residual_risk_band` columns in `risk-register/risk-register.csv` remain the **authoritative** residual-risk record for this project, per the limitation already documented in `docs/stage3-deployment-notes.md`.
+
 ## 5. Treatment
 
 Every risk is assigned exactly one treatment:

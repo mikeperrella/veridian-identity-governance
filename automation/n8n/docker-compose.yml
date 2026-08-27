@@ -1,0 +1,27 @@
+services:
+  n8n:
+    build: .
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      - N8N_COMMUNITY_PACKAGES_ENABLED=true
+      - N8N_CUSTOM_EXTENSIONS=/usr/local/lib/node_modules/n8n-nodes-ciso-assistant
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - N8N_RESTRICT_FILE_ACCESS_TO=/data;/home/node/.n8n-files
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ../../data:/data:ro
+    networks:
+      - default
+      - ciso_assistant
+
+volumes:
+  n8n_data:
+
+networks:
+  default: {}
+  ciso_assistant:
+    name: ciso-assistant-community_default
+    external: true

@@ -1,0 +1,37 @@
+{
+  "id": "verify-c04-finding-1",
+  "name": "Verify C-04 Finding (read-only)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "v1a1a1a1-0001-4a1a-8a1a-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "resource": "finding",
+        "operation": "get",
+        "id": "51739da0-8a15-477a-a200-a02480aa34b1"
+      },
+      "id": "v1a1a1a1-0002-4a1a-8a1a-000000000002",
+      "name": "Get C-04 Finding",
+      "type": "CUSTOM.cisoAssistant",
+      "typeVersion": 1,
+      "position": [220, 0],
+      "credentials": {
+        "cisoAssistantApi": {
+          "id": "ciso-assistant-cred-1",
+          "name": "CISO Assistant account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Get C-04 Finding", "type": "main", "index": 0 }]]
+    }
+  }
+}

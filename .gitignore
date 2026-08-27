@@ -1,0 +1,7 @@
+# Secrets -- never commit PATs, tokens, or credentials
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.pyc

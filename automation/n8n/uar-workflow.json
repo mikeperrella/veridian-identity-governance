@@ -1,0 +1,120 @@
+{
+  "id": "veridian-uar-workflow-1",
+  "name": "Veridian UAR Automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e1a1a1a1-0001-4a1a-8a1a-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "fileSelector": "/data/identity_inventory.csv"
+      },
+      "id": "e1a1a1a1-0002-4a1a-8a1a-000000000002",
+      "name": "Read Identity Inventory",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "operation": "csv",
+        "binaryPropertyName": "data"
+      },
+      "id": "e1a1a1a1-0003-4a1a-8a1a-000000000003",
+      "name": "Parse CSV",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "const rows = $input.all().map(item => item.json);\n\n// Fixed reference date, matching data/generate_inventory.py's AS_OF convention\n// so this workflow's output is deterministic and doesn't drift with real time.\nconst AS_OF = new Date('2026-08-26T00:00:00Z');\n\nfunction daysSince(dateStr) {\n  if (!dateStr) return Infinity;\n  const d = new Date(dateStr + 'T00:00:00Z');\n  return Math.floor((AS_OF - d) / (1000 * 60 * 60 * 24));\n}\n\nconst targetRoles = new Set(['Privileged', 'Admin']);\nconst inScope = rows.filter(r => targetRoles.has(r.role_category));\nconst stale = inScope.filter(r => daysSince(r.last_access_review_date) > 90);\n\nlet autoAttested = 0;\nlet flaggedForRemoval = 0;\nconst flaggedIds = [];\n\nfor (const r of stale) {\n  if (r.status === 'Active' && r.okta_status === 'Active') {\n    autoAttested++;\n  } else {\n    // Deterministic rule: anything not (Active status + Active in Okta) is\n    // not auto-attested. Some of these (e.g. Terminated + already\n    // Deprovisioned) have nothing left to remove -- they're flagged here\n    // as \"not auto-attested\" rather than implying pending removal action\n    // on an account that's already correctly offboarded.\n    flaggedForRemoval++;\n    flaggedIds.push(r.employee_id);\n  }\n}\n\nconst today = '2026-08-26';\nconst observationLine = `[${today}] Automated UAR run (n8n): ${inScope.length} privileged/admin accounts in scope, ${stale.length} due for review (last_access_review_date blank or >90 days old). ${autoAttested} auto-attested (Active in HRIS and Okta, access confirmed still needed). ${flaggedForRemoval} not auto-attested, flagged for manual review (terminated and/or Okta status mismatch): ${flaggedIds.join(', ') || 'none'}.`;\n\nreturn [{\n  json: {\n    inScopeCount: inScope.length,\n    staleCount: stale.length,\n    autoAttestedCount: autoAttested,\n    flaggedCount: flaggedForRemoval,\n    flaggedIds,\n    observationLine,\n    escalate: flaggedForRemoval > 0\n  }\n}];\n"
+      },
+      "id": "e1a1a1a1-0004-4a1a-8a1a-000000000004",
+      "name": "Filter & Attest UAR",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 0]
+    },
+    {
+      "parameters": {
+        "resource": "finding",
+        "operation": "get",
+        "id": "51739da0-8a15-477a-a200-a02480aa34b1"
+      },
+      "id": "e1a1a1a1-0005-4a1a-8a1a-000000000005",
+      "name": "Get C-04 Finding",
+      "type": "CUSTOM.cisoAssistant",
+      "typeVersion": 1,
+      "position": [880, 0],
+      "credentials": {
+        "cisoAssistantApi": {
+          "id": "ciso-assistant-cred-1",
+          "name": "CISO Assistant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "const computed = $('Filter & Attest UAR').first().json;\nconst currentFinding = $json;\n\n// Finding.severity is a SmallIntegerField on the model (IntegerChoices);\n// the read serializer hydrates it to its display label (e.g. \"medium\"),\n// but the write serializer expects the raw integer back. Map both ways.\nconst SEVERITY_TO_INT = { undefined: -1, info: 0, low: 1, medium: 2, high: 3, critical: 4 };\n\nconst existingObservation = currentFinding.observation || '';\nconst mergedObservation = existingObservation\n  ? existingObservation + '\\n' + computed.observationLine\n  : computed.observationLine;\n\nlet newSeverityLabel = currentFinding.severity;\nlet escalationLine = '';\n\nif (computed.escalate && currentFinding.severity !== 'high' && currentFinding.severity !== 'critical') {\n  newSeverityLabel = 'high';\n  escalationLine = `\\n[2026-08-26] ESCALATED: severity raised from '${currentFinding.severity}' to 'high' because ${computed.flaggedCount} account(s) were not auto-attested and require manual removal review.`;\n}\n\nconst finalObservation = mergedObservation + escalationLine;\n\nreturn [{\n  json: {\n    findingId: currentFinding.id,\n    finalObservation,\n    newSeverity: SEVERITY_TO_INT[newSeverityLabel],\n    escalated: escalationLine !== ''\n  }\n}];\n"
+      },
+      "id": "e1a1a1a1-0006-4a1a-8a1a-000000000006",
+      "name": "Merge Observation & Escalate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 0]
+    },
+    {
+      "parameters": {
+        "resource": "finding",
+        "operation": "update",
+        "id": "51739da0-8a15-477a-a200-a02480aa34b1",
+        "updateFields": {
+          "observation": "={{ $json.finalObservation }}",
+          "severity": "={{ $json.newSeverity }}"
+        }
+      },
+      "id": "e1a1a1a1-0007-4a1a-8a1a-000000000007",
+      "name": "Update C-04 Finding",
+      "type": "CUSTOM.cisoAssistant",
+      "typeVersion": 1,
+      "position": [1320, 0],
+      "credentials": {
+        "cisoAssistantApi": {
+          "id": "ciso-assistant-cred-1",
+          "name": "CISO Assistant account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Read Identity Inventory", "type": "main", "index": 0 }]]
+    },
+    "Read Identity Inventory": {
+      "main": [[{ "node": "Parse CSV", "type": "main", "index": 0 }]]
+    },
+    "Parse CSV": {
+      "main": [[{ "node": "Filter & Attest UAR", "type": "main", "index": 0 }]]
+    },
+    "Filter & Attest UAR": {
+      "main": [[{ "node": "Get C-04 Finding", "type": "main", "index": 0 }]]
+    },
+    "Get C-04 Finding": {
+      "main": [[{ "node": "Merge Observation & Escalate", "type": "main", "index": 0 }]]
+    },
+    "Merge Observation & Escalate": {
+      "main": [[{ "node": "Update C-04 Finding", "type": "main", "index": 0 }]]
+    }
+  }
+}
