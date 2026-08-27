@@ -1,0 +1,4 @@
+employee_id,full_name,email,department,title,employment_type,manager_id,hire_date,term_date,status,okta_status,mfa_enrolled,role_category,last_access_review_date
+EMP-0007,Abigail Shaffer,abigail.shaffer@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0006,2023-03-03,2024-08-15,Terminated,Active,Y,Standard,2026-07-19
+EMP-0023,Ethan Adams,ethan.adams@veridianlegaltech.example,Product,Product Designer,FTE,EMP-0022,2022-07-20,2024-12-07,Terminated,Active,Y,Standard,
+EMP-0029,Zachary Hicks,zachary.hicks@veridianlegaltech.example,Customer Success,Onboarding Specialist,FTE,EMP-0016,2020-07-02,2021-04-07,Terminated,Active,Y,Standard,2026-06-21

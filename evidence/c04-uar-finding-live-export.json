@@ -1,0 +1,50 @@
+{
+  "id": "51739da0-8a15-477a-a200-a02480aa34b1",
+  "path": [],
+  "owner": [
+    {
+      "str": "compliance-analyst@veridianlegaltech.example",
+      "id": "fa85811f-10ee-4332-83ae-6778dbd373db"
+    }
+  ],
+  "findings_assessment": {
+    "str": "Veridian Identity Governance Control Testing 2026",
+    "id": "5a7e3b25-9d9b-4ca7-a35d-0a0e101208bb",
+    "name": "Veridian Identity Governance Control Testing 2026",
+    "is_locked": false
+  },
+  "requirement_node": {
+    "str": "CC6.3.4",
+    "ref_id": "CC6.3.4",
+    "name": null
+  },
+  "asset": null,
+  "threats": [],
+  "vulnerabilities": [],
+  "reference_controls": [],
+  "applied_controls": [
+    {
+      "str": "Quarterly UAR for Privileged & Admin Roles",
+      "id": "4c22e287-c1b3-4c38-87d2-089b750f0a2e"
+    }
+  ],
+  "filtering_labels": [],
+  "evidences": [],
+  "perimeter": null,
+  "folder": {
+    "str": "Global",
+    "id": "dc7cd9f8-d1f1-42a5-8dc2-6e2264cd432b"
+  },
+  "severity": "high",
+  "priority": null,
+  "created_at": "2026-08-26T23:30:49.482290Z",
+  "updated_at": "2026-08-27T01:52:30.089501Z",
+  "is_published": false,
+  "name": "Privileged/Admin UAR Cadence Not Centrally Enforced or Tracked",
+  "description": "Root cause: the review activity itself happens, but nothing enforces the cadence or tracks completion centrally. Business impact: privileged access could remain excessive for extended periods undetected. Evidence: data/identity_inventory.csv shows several privileged accounts with stale or missing last_access_review_date values.",
+  "eta": null,
+  "due_date": "2026-09-30",
+  "ref_id": "",
+  "status": "identified",
+  "observation": "[2026-08-26] Automated UAR run (n8n): 45 privileged/admin accounts in scope, 31 due for review (last_access_review_date blank or >90 days old). 29 auto-attested (Active in HRIS and Okta, access confirmed still needed). 2 not auto-attested, flagged for manual review (terminated and/or Okta status mismatch): EMP-0058, EMP-0152.\n[2026-08-26] ESCALATED: severity raised from 'medium' to 'high' because 2 account(s) were not auto-attested and require manual removal review."
+}

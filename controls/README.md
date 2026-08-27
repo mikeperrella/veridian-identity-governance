@@ -1,11 +1,7 @@
 # Control Catalog — Status
 
-`control-catalog.csv` is a **Stage 2 scaffold**, generated per the content-ownership workflow in `CLAUDE.md` Section 8.
+`control-catalog.csv` was scaffolded in Stage 2 per the content-ownership workflow in `CLAUDE.md` Section 8, then went through the required rewrite pass: every `control_rationale` field's `DRAFT:` prefix is gone (verified: `grep -c "DRAFT:" controls/control-catalog.csv` returns 0), and `docs/stage2-rewrite-checklist.md` is checked off in full. **The Section 8 content-ownership gate has passed** — this rationale is Mike's own words, not the scaffolded first-pass draft, and is defensible in an interview context.
 
-Every `control_rationale` field is prefixed `DRAFT:` and represents a first-pass judgment — "why this control is considered sufficient" — not a final one.
+`test_procedure` describes how each control was designed to be tested. Actual test results (expected vs. actual, pass/fail, deficiency severity) live in `docs/stage4-control-testing-findings.md`, not in this catalog.
 
-Per the roadmap (`CLAUDE.md` Section 10, Stage 2), this rationale must be rewritten by Mike, in his own words, before Stage 2 is marked done. The structure — control IDs, objectives, framework mappings, owners, frequency, evidence requirements, and designed test procedures — can stay as generated; the judgment behind each "this control is sufficient" call cannot.
-
-Note: `test_procedure` describes how each control *will be* tested. No test has been executed yet — actual results (expected vs. actual, pass/fail, deficiency severity) belong to Stage 4 ("Control Testing & Findings") and will live in a separate findings artifact, not in this catalog.
-
-**Do not treat the `DRAFT:` rationale text as final or defensible in an interview context until this gate has passed.** See `docs/stage2-rewrite-checklist.md` for the full list of items to rewrite across both this catalog and the risk register.
+See `docs/decision-log.md` for every methodology decision and correction made while populating and testing this catalog (e.g. how each control maps to specific SOC 2 points of focus, the residual-risk mapping limitation) rather than repeated here.

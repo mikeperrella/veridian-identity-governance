@@ -1,9 +1,7 @@
 # Risk Register — Status
 
-`risk-register.csv` is a **Stage 1 scaffold**, generated per the content-ownership workflow in `CLAUDE.md` Section 8.
+`risk-register.csv` was scaffolded in Stage 1 per the content-ownership workflow in `CLAUDE.md` Section 8, then went through the required rewrite pass: every `treatment_rationale` field's `DRAFT:` prefix is gone (verified: `grep -c "DRAFT:" risk-register/risk-register.csv` returns 0), and `docs/stage2-rewrite-checklist.md` is checked off in full for all 16 risks. **The Section 8 content-ownership gate has passed** — this rationale is Mike's own words, not the scaffolded first-pass draft, and is defensible in an interview context.
 
-Every `treatment_rationale` field (and the `compensating_control` / `acceptance_expiry` / `escalation_path` fields on the one Accept-treatment risk) is prefixed `DRAFT:` and represents a first-pass judgment, not a final one.
+The structure — risk IDs, categories, likelihood/impact scores, and inherent/residual calculations per `docs/risk-methodology.md` — was generated; only the judgment calls behind each treatment decision were rewritten, per Section 8's rule.
 
-Per the roadmap (`CLAUDE.md` Section 10, Stage 2), these rationale fields must be rewritten by Mike, in his own words, before Stage 2 is marked done. The structure — risk IDs, categories, likelihood/impact scores, inherent/residual calculations per `docs/risk-methodology.md` — can stay as generated; the judgment calls behind each treatment decision cannot.
-
-**Do not treat the `DRAFT:` rationale text as final or defensible in an interview context until this gate has passed.**
+See `docs/decision-log.md` for every methodology decision and correction made against this register (e.g. the residual-risk mapping limitation into CISO Assistant, the PR/SP asset-typing criterion) rather than repeated here.

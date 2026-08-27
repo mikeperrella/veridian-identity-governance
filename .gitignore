@@ -3,6 +3,11 @@
 .env.*
 !.env.example
 
+# Personal interview/resume prep -- needed locally, never tracked, same
+# pattern as .env.local. A pre-written answer key undermines the thing
+# it's meant to demonstrate if an interviewer finds it in the repo.
+private/
+
 __pycache__/
 *.pyc
 

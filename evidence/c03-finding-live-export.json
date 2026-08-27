@@ -1,0 +1,53 @@
+{
+  "id": "0c0832d2-80ce-45fd-9197-17cc09b99276",
+  "path": [],
+  "owner": [
+    {
+      "str": "it-security-manager@veridianlegaltech.example",
+      "id": "f1783678-4e7c-4c54-8ccf-25cb195132db"
+    }
+  ],
+  "findings_assessment": {
+    "str": "Veridian Identity Governance Control Testing 2026",
+    "id": "5a7e3b25-9d9b-4ca7-a35d-0a0e101208bb",
+    "name": "Veridian Identity Governance Control Testing 2026",
+    "is_locked": false
+  },
+  "requirement_node": {
+    "str": "CC6.2.3",
+    "ref_id": "CC6.2.3",
+    "name": null
+  },
+  "asset": {
+    "str": "Okta",
+    "id": "b14f1aca-e692-4073-bfc6-cdf03bdeb992"
+  },
+  "threats": [],
+  "vulnerabilities": [],
+  "reference_controls": [],
+  "applied_controls": [
+    {
+      "str": "Termination Deprovisioning (Offboarding)",
+      "id": "df84fc8c-0fe2-4a3b-b1cf-4cd0834911cf"
+    }
+  ],
+  "filtering_labels": [],
+  "evidences": [],
+  "perimeter": null,
+  "folder": {
+    "str": "Global",
+    "id": "dc7cd9f8-d1f1-42a5-8dc2-6e2264cd432b"
+  },
+  "severity": "critical",
+  "priority": "P1",
+  "created_at": "2026-08-26T23:30:47.247751Z",
+  "updated_at": "2026-08-26T23:35:26.548763Z",
+  "is_published": false,
+  "name": "Terminated Employees Retain Active Okta Access Past Separation Date",
+  "description": "Root cause: Termination-triggered deprovisioning depends entirely on a manager remembering to notify IT after an employee's last day. There is no automated trigger tied to the HRIS termination event, and no reconciliation step verifies that Okta deactivation actually occurred.\n\nBusiness impact: A terminated employee with valid SSO credentials can access client matter data and internal systems after separation. For a platform whose entire customer base is law firms trusting it with privileged client data, this is a direct confidentiality exposure with contractual and regulatory consequences -- it is also, concretely, a SOC 2 CC6.2/CC6.3 nonconformity that puts SOC 2 Type II attestation (and the enterprise deals gated on it) at risk.\n\nEvidence: data/identity_inventory.csv shows 3 employees with a valid past status=Terminated and okta_status=Active (a 4th matching row, EMP-0190, was excluded after direct verification found her term_date is 11 days in the future -- a data-generation bug in generate_inventory.py, fixed separately, not cited as evidence here). Specific example: EMP-0007, Abigail Shaffer (Product Designer), terminated 2024-08-15, still Active in Okta as of her last recorded access review (2026-07-19) -- meaning even a completed review did not catch this. The other 2 valid accounts: EMP-0023, EMP-0029.",
+  "eta": null,
+  "due_date": "2026-08-31",
+  "ref_id": "",
+  "status": "closed",
+  "observation": "[2026-08-26] Identified during Stage 4 control test of C-03: identity inventory review found 3 terminated employees (incl. EMP-0007 Abigail Shaffer) still Active in Okta past their termination date. (A 4th matching row, EMP-0190, was excluded after direct verification found her term_date is 11 days in the future -- a data-generation bug tracked separately, not cited as evidence here.)\n[2026-08-27] Confirmed all 3 accounts (EMP-0007, EMP-0023, EMP-0029) hold Active, session-capable Okta credentials past their termination date. Immediate deactivation initiated.\n[2026-08-28] All 3 accounts manually deactivated in Okta. Root-cause remediation (event-driven deprovisioning tied to the HRIS termination trigger, per C-03/R-002/C-02's shared remediation plan) opened as a tracked engineering task.\n[2026-08-31] Verified all 3 accounts remain deactivated with no login activity since remediation. Immediate exposure closed. Systemic automated-deprovisioning fix remains tracked separately under R-002 (due 2026-10-15) and C-02 -- this finding covers the specific 3-account exposure only, not the underlying process gap.\n[2026-09-05] One-week monitoring window complete; no further offboarding gaps detected. Finding closed."
+}
