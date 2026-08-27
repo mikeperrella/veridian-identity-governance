@@ -13,3 +13,9 @@ __pycache__/
 # used is CLAUDE.md and the docs/stage*-notes.md files, not this directory.
 .claude/
 .agents/
+
+# Same category: the agency-agents installer's Cursor role files -- local
+# tooling config, not a project deliverable. Tracked since the first commit
+# by inconsistency (before the .claude/.agents/ exclusion reasoning above
+# existed); untracked for consistency once noticed.
+.cursor/
