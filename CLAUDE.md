@@ -55,7 +55,7 @@ n8n (self-hosted, Docker)
         │
         │  CISO Assistant REST API (read)
         ▼
-Streamlit dashboard (streamlit-facade theme)
+Streamlit dashboard (native theming + custom CSS — see Stage 6 correction in Section 3)
   - executive view: residual risk heat map, control effectiveness %,
     open/overdue findings, % high-priv accounts current on review,
     trend line pre/post remediation
@@ -81,11 +81,15 @@ Note: a *different*, unpublished, AGPL-licensed node also exists, bundled inside
 |---|---|---|---|
 | GRC system of record | CISO Assistant Community Edition (Docker) | Yes | AGPL v3, Django/SvelteKit/PostgreSQL/Redis, API-first, ~4,000 GitHub stars, actively maintained (v3.15.9 as of Apr 2026) |
 | Automation | n8n (self-hosted, Docker) | Yes | HTTP Request node + PAT against CISO Assistant's API — no community node needed |
-| Dashboard | Python + Streamlit + `streamlit-facade` | Yes | `pip install streamlit-facade`; themeable, no Node dependency, avoids the streamlit-shadcn-ui look (too close to `aegis-triage`) |
+| Dashboard | Python + Streamlit, native theming + custom CSS | Yes | See Stage 6 correction below — `streamlit-facade` was dropped |
 | Risk scoring | Python + pandas | Yes | Local script, recalculates residual risk, flags overdue |
 | Data | Synthetic CSV/JSON, SQLite where needed | Yes | |
 | Version control | GitHub | Yes | |
 | Diagrams | Mermaid (renders natively in GitHub markdown) | Yes | |
+
+**Correction (Stage 6): `streamlit-facade` is dropped.** It was originally chosen specifically to *avoid* a shadcn-style look ("avoids the streamlit-shadcn-ui look — too close to `aegis-triage`"). Verified via PyPI's JSON package metadata and the author's own Streamlit-community announcement post: `streamlit-facade` is real (v0.1.6, MIT, by Daniyal M) but is explicitly self-described as **"shadcn-inspired,"** which is the exact visual family this project was trying to avoid — using it would have reproduced the convergence risk it was picked to prevent. The dashboard instead uses Streamlit's native theming (`.streamlit/config.toml`) plus hand-written CSS/HTML (`st.markdown(unsafe_allow_html=True)`) for the bespoke "review stamp" and docket-rail components described in Section 4, guided by the `developing-with-streamlit` skill. `streamlit-extras` (real, active, Apache-2.0) is used only for minor utilities, not as the design system's backbone. Plotly renders the charts.
+
+**Deliberate override (Stage 6, second correction): shadcn-adjacent polish, chosen knowingly.** After the correction above, the user explicitly decided to move the dashboard's visual polish toward a shadcn-adjacent look (soft shadows, 8px radius, tighter type scale) and Apple-style typography (generous body line-height/letter-spacing, clear heading-size steps) — overriding the reasoning in the correction above and, by extension, accepting some of the `aegis-triage` visual-convergence risk Section 0's distinctness non-negotiable originally wanted to avoid. This is recorded here as a **considered tradeoff the user made deliberately**, not a silent contradiction of Section 0. The implementation still does not use the `streamlit-facade` library or any other shadcn-wrapping package — it's hand-rolled CSS layered onto the existing native theming and bespoke components (stamps, docket rail, Phosphor icons), so the already-verified custom elements are preserved rather than replaced by a dependency with no equivalent for them. See `docs/stage6-dashboard-notes.md` for the specific CSS/typography values.
 
 **Docker resource note:** CISO Assistant's minimum viable footprint is ~1 vCPU / 8GB RAM. Running CISO Assistant + n8n + Streamlit simultaneously will strain a laptop already running Cursor. Default to starting only what the current build session needs (`docker compose stop` the rest) rather than leaving all three up continuously.
 
@@ -158,8 +162,8 @@ This governs how the risk register, control rationale, and treatment decisions g
 Run once at the start of the build, inside the actual project directory in Cursor (these commands run on Mike's machine via Claude Code, not from this spec alone):
 
 ```bash
-# Dashboard component library
-pip install streamlit-facade
+# Dashboard dependencies (streamlit-facade dropped — see Stage 6 correction in Section 3)
+pip install -r requirements.txt
 
 # agency-agents — Design + relevant Engineering/Security/Specialized/Testing/Support agents only,
 # not the full 200+ roster

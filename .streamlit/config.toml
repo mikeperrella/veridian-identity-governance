@@ -1,0 +1,37 @@
+[theme]
+base = "light"
+primaryColor = "#B08D57"
+backgroundColor = "#F2F3F5"
+secondaryBackgroundColor = "#E8E9ED"
+textColor = "#161B2E"
+borderColor = "#D5D8DE"
+linkColor = "#7A2E2E"
+linkUnderline = false
+
+redColor = "#7A2E2E"
+orangeColor = "#C08A2E"
+greenColor = "#3F6B4F"
+grayColor = "#5B6070"
+
+chartCategoricalColors = ["#7A2E2E", "#C08A2E", "#B08D57", "#3F6B4F", "#161B2E", "#5B6070"]
+
+font = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+headingFont = "'Fraunces':https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+
+baseRadius = "medium"
+baseFontSize = 15
+headingFontSizes = ["34px", "22px", "18px", "16px", "14px", "13px"]
+headingFontWeights = [600, 600, 600, 500, 500, 500]
+showWidgetBorder = true
+showSidebarBorder = true
+
+[client]
+toolbarMode = "minimal"
+
+[theme.sidebar]
+backgroundColor = "#EAEBEF"
+secondaryBackgroundColor = "#DFE1E6"
+textColor = "#161B2E"
+borderColor = "#D5D8DE"
+primaryColor = "#B08D57"

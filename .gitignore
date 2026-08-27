@@ -5,3 +5,11 @@
 
 __pycache__/
 *.pyc
+
+# Local Claude Code tooling config (installed skills/agents) -- not a project
+# deliverable. .claude/skills/tufte/ in particular is its own nested git
+# checkout; committing it would vendor another project's history into this
+# repo instead of just referencing it. The real record of which skills were
+# used is CLAUDE.md and the docs/stage*-notes.md files, not this directory.
+.claude/
+.agents/
