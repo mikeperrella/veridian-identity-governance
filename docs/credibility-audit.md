@@ -20,7 +20,7 @@ Real, and re-verified live on 2026-08-27 while writing this stage (not recalled 
 
 ## Could every component be defended under a specific follow-up question in an interview?
 
-That's what `private/interview-prep.md` is for (local only, not part of the public repo — a pre-written answer key visible to an interviewer would undermine the thing it's meant to demonstrate). It's deliberately built around the messiest parts of the build, not the cleanest: the residual-risk compounding bug in `docs/risk-methodology.md` §4a, the n8n owner-account scare that turned out not to be data loss, and how to defend the Stage 6 shadcn-adjacent override under a skeptical "isn't this the same as `aegis-triage` now?" follow-up — see the next section for that specific answer.
+Yes — but the specific preparation material for this lives outside the tracked repo, deliberately. A visible, pre-written answer key would undermine the thing it's meant to demonstrate if an interviewer could read it in advance, so that material stays local-only rather than committed. What follows here is one example worked through in public: how to defend the Stage 6 shadcn-adjacent override under a skeptical "isn't this the same as `aegis-triage` now?" follow-up.
 
 ## Is the synthetic-data disclaimer prominent, not buried?
 
